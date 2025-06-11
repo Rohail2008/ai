@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JARVIS v4.0 - AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="avatar.png" />
+  <link rel="manifest" href="manifest.json">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <button class="nav-item active" id="dashboardNav">Dashboard</button>
+    <button class="nav-item" id="appsNav">Apps</button>
+    <button class="nav-item" id="calendarNav">Calendar</button>
+    <button class="nav-item" id="settingsNav">Settings</button>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="page dashboard-page active" id="dashboardPage">
+      <div class="header">
+        <h1>Hello, <span id="userName">User</span> 👋</h1>
+        <div class="header-icons">
+          <div id="themeToggle" title="Toggle Theme">🌙</div>
+        </div>
+      </div>
+
+      <div class="main-display">
+        <div class="waveform" id="waveform"></div>
+        <h2 class="greeting" id="greetingText">Initializing JARVIS...</h2>
+        <button class="talk"><i class="fas fa-microphone-alt"></i> Speak</button>
+        <p class="transcript" id="transcript">Waiting for command...</p>
+        <div class="status" id="statusDisplay">Status: Idle</div>
+      </div>
+
+      <div class="ambient-info">
+        <p><strong>Time:</strong> <span id="currentTime"></span></p>
+        <p><strong>Date:</strong> <span id="currentDate"></span></p>
+        <p><strong>Weather:</strong> <span id="weatherInfo">Loading...</span></p>
+      </div>
+
+      <div class="output-area">
+        <textarea id="typingAssistant" placeholder="JARVIS's responses or your typed commands will appear here..." readonly></textarea>
+        <div id="historyLog">
+          <h3>Command History</h3>
+          <div id="historyList"></div>
+        </div>
+        <div id="notesSection">
+          <h3>My Notes</h3>
+          <div id="notesList"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page apps-page" id="appsPage">
+      <h2>My Apps</h2>
+      <p>Configure and launch your favorite web applications.</p>
+      <div class="app-list" id="appList">
+        <div class="app-item">
+          <h4>YouTube</h4>
+          <p>Search and play videos</p>
+          <button class="app-launch-btn" data-app-id="youtube">Launch</button>
+        </div>
+        <div class="app-item">
+          <h4>Google Search</h4>
+          <p>Perform web searches</p>
+          <button class="app-launch-btn" data-app-id="Google Search">Launch</button>
+        </div>
+        </div>
+      <h3>Add New App</h3>
+      <div class="add-app-form">
+        <input type="text" id="newAppName" placeholder="App Name (e.g., 'Gmail')" />
+        <input type="url" id="newAppUrl" placeholder="URL (e.g., 'https://mail.google.com')" />
+        <button id="addAppBtn">Add App</button>
+      </div>
+    </div>
+
+    <div class="page calendar-page" id="calendarPage">
+      <h2>My Calendar</h2>
+      <div class="calendar-display">
+        <h3 id="calendarDateDisplay">Today's Events: <span id="currentCalendarDate"></span></h3>
+        <div id="eventsList">
+          </div>
+      </div>
+      <h3>Add Event</h3>
+      <div class="add-event-form">
+        <input type="text" id="newEventText" placeholder="Event description (e.g., 'Meeting at 3 PM')" />
+        <input type="date" id="newEventDate" />
+        <button id="addEventBtn">Add Event</button>
+      </div>
+      <h3>Upcoming Events</h3>
+      <div id="upcomingEventsList"></div>
+    </div>
+
+    <div class="page settings-page" id="settingsPage">
+      <h2>Settings</h2>
+      <div class="settings-content">
+        <label for="inputUserName">Your Name:</label>
+        <input type="text" id="inputUserName" placeholder="Enter your name" />
+        <button id="saveUserName">Save Name</button>
+
+        <label>Memory Reset:</label>
+        <button id="resetMemory">Clear All Data</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
